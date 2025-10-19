@@ -36,7 +36,7 @@
     loading.value = true
     error.value = null
     try {
-      const response = await axios.get('http://localhost:3000/electives', {
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/electives`, {
         params: {
           page,
           limit: LIMIT,

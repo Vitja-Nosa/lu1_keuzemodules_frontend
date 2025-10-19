@@ -37,7 +37,7 @@
     if (/\b(chemistry|chem)\b/.test(n)) return 'chemistry'
     if (/\b(physics|astronomy|astro)\b/.test(n)) return 'science'
     if (/\b(history|culture|society|politics)\b/.test(n)) return 'history'
-    return '' // generic fallback
+    return ''
     }
 
     function placeimgCategory(keyword: string) {

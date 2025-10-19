@@ -57,7 +57,7 @@ async function enrollStudent() {
   error.value = null;
   try {
     const response = await axios.post(
-      'http://localhost:3000/students/enroll',
+      `${import.meta.env.VITE_API_BASE_URL}/students/enroll`,
       { elective_id: electiveId.value },
       {
         headers: {
@@ -91,8 +91,7 @@ async function fetchElective(id: String) {
   loading.value = true;
   error.value = null;
   try {
-    const response = await axios.get('http://localhost:3000/electives/' + id,
-      {
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/electives/` + id, {
         headers: {
           Authorization: `Bearer ${authStore.token}`,
         },
@@ -238,7 +237,7 @@ onMounted(async () => {
 .notification {
   position: fixed;
   bottom: 1rem;
-  left: 1rem;
+  right: 1rem;
   padding: 1rem 1.5rem;
   border-radius: 8px;
   font-size: 1rem;

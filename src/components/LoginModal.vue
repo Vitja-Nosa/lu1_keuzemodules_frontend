@@ -21,7 +21,7 @@ async function login() {
     const email = (document.getElementById('email') as HTMLInputElement).value
     const password = (document.getElementById('password') as HTMLInputElement).value
 
-    const response = await axios.post('http://localhost:3000/login', { email, password })
+    const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/login`, { email, password })
 
     if (response.data.token) {
       authStore.login(response.data.token);

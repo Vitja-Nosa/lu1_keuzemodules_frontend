@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router';
+import ExpandableBox from './components/ExpandableBox.vue';
+import { useAuthStore } from '@/stores/auth';
+
+const authStore = useAuthStore();
 </script>
 
 <template>
   <RouterView />
+  <ExpandableBox v-if="authStore.isLoggedIn" />
 </template>
 
 <style>
@@ -15,7 +20,6 @@ import { RouterLink, RouterView } from 'vue-router'
   --shadow-accent: rgba(198,0,42,0.18);
 }
 
-/* apply background/text globally */
 html,body,#app {
   background: var(--bg);
   color: var(--text);
@@ -23,7 +27,6 @@ html,body,#app {
   margin: 0;
 }
 
-/* logos */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -37,7 +40,6 @@ html,body,#app {
   filter: drop-shadow(0 0 2em var(--shadow-accent));
 }
 
-/* nav styling */
 nav {
   padding: 0.5rem 1rem;
 }
